@@ -4,6 +4,10 @@
         align-items: center;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     }
+    #download{
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
 </style>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,12 +24,10 @@
         <input type="text" name="name" id="filename" value="">
         <h3>Url</h3>
         <input type="text" name="url" id='url' onkeyup="qrCode()">
-        <textarea name="text" id="myTextarea"></textarea>
+        <br>
+        <input id="download" type="submit" value="Download" onclick="download()">
     </form>
-    <br>
     <canvas id="canvas"></canvas>
-    <br>
-    <input type="submit" value="Download" onclick="download()">
     <script src="./node_modules/qrcode/build/qrcode.min.js"></script>
     <script src="./index.js"></script>
 </body>

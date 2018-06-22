@@ -2,7 +2,7 @@ const canvas = document.getElementById('canvas')
 const opts = {
     errorCorrectionLevel: 'H',
     type: 'svg',
-    scale: 5,
+    scale: 10,
     rendererOpts: {
       quality: 0.3
     }
@@ -39,17 +39,20 @@ qrCode=()=>{
 }
 download=()=>{
     //https://stackoverflow.com/questions/3665115/create-a-file-in-memory-for-user-to-download-not-through-server
-    const filename = document.getElementById("filename").value;
-    var file = document.createElement('a')
+    const url = document.getElementById("url").value; 
+    if (url.length >= 1) {
+        const filename = document.getElementById("filename").value;
+        var file = document.createElement('a')
 
-    file.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(svg))
-    file.setAttribute('download', filename + '.svg')
-  
-    file.style.display = 'none'
-    document.body.appendChild(file);
-  
-    file.click();
-  
-    document.body.removeChild(file);
+        file.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(svg))
+        file.setAttribute('download', filename + '.svg')
+    
+        file.style.display = 'none'
+        document.body.appendChild(file);
+    
+        file.click();
+    
+        document.body.removeChild(file);
+    }
 }
 
